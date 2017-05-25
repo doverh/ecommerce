@@ -24,11 +24,11 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
 	
 	
-		String userEmail = request.getParameter("username");
+		String username = request.getParameter("username");
 		String password = request.getParameter("pwd");
 		User userObject = null;
 		try{
-			userObject = us.authenticateUser(userEmail, password);
+			userObject = us.authenticateUser(username, password);
 
 
 			//Create Http session         
