@@ -1,0 +1,5 @@
+/home/dovico/workspace/Authentication_Ecommerce/src/com/ecommerce/authentication/dao/UserDao.java
+/home/dovico/workspace/Authentication_Ecommerce/src/com/ecommerce/authentication/model/User.java
+/home/dovico/workspace/Authentication_Ecommerce/src/com/ecommerce/authentication/controller/LoginController.java
+/home/dovico/workspace/Authentication_Ecommerce/src/com/ecommerce/authentication/controller/RegistrationController.java
+/home/dovico/workspace/Authentication_Ecommerce/src/com/ecommerce/authentication/dao/UserDaoImpl.java
