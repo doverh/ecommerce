@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+ <class name="com.ecommerce.dto.Product" table="products">  
+ <id name="product_id">  
+ <generator class="increment"></generator>  
+ </id>
+ <property name="product_name" type="java.lang.String">
+            <column name="product_name" />
+        </property> 
+ <property name="code" type="java.lang.String">
+            <column name="code" />
+        </property> 
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property> 
+        <property name="category_id" type="java.lang.Integer">
+            <column name="category_id" />
+        </property> 
+        <property name="price" type="java.lang.Double">
+            <column name="price" />
+        </property>  
+ <property name="image" type="java.lang.String">
+            <column name="image" />
+        </property>         
+ </class>
+ </hibernate-mapping>  
