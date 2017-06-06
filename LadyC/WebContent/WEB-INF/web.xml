@@ -15,7 +15,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
-    <url-pattern>/LoginController</url-pattern>
+    <url-pattern>/views/LoginController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -25,7 +25,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegistrationController</servlet-name>
-    <url-pattern>/RegistrationController</url-pattern>
+    <url-pattern>/views/RegistrationController</url-pattern>
   </servlet-mapping>
    <servlet>
     <description></description>
@@ -36,5 +36,25 @@
   <servlet-mapping>
     <servlet-name>ProductController</servlet-name>
     <url-pattern>/views/ProductController</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>CartController</display-name>
+    <servlet-name>CartController</servlet-name>
+    <servlet-class>com.ecommerce.controller.CartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartController</servlet-name>
+    <url-pattern>/views/CartController</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>PaymentController</display-name>
+    <servlet-name>PaymentController</servlet-name>
+    <servlet-class>com.ecommerce.controller.PaymentController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaymentController</servlet-name>
+    <url-pattern>/views/PaymentController</url-pattern>
   </servlet-mapping>
 </web-app>
