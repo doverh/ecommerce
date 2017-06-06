@@ -57,12 +57,21 @@ public class CartController extends HttpServlet {
 			cart = new Cart();
 		}
 		
+		
 		int itemIndex = cart.getItemIndex(itemId);
 		System.out.println("Controller Index = "+itemIndex);
 		cart.deleteCartItem(itemIndex);
-		request.setAttribute("cart", cart);
-		request.getRequestDispatcher("checkout.jsp").forward(request, response);
-
+		@SuppressWarnings("unchecked")
+		ArrayList<Item> carts = cart.getCartItems();
+		System.out.println("Cart size" + carts.size());
+		if (!carts.isEmpty()) {
+			request.setAttribute("cart", carts);
+			//request.setAttribute("total", cart.getOrderTotal());
+			request.getRequestDispatcher("checkout.jsp").forward(request, response);
+		} else {
+			String message = "Shopping cart is empty!";
+			response.sendRedirect("search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+		}
 	}
 
 	protected void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
@@ -92,7 +101,8 @@ public class CartController extends HttpServlet {
 		String strCode = request.getParameter("product_code");
 		String strPrice = request.getParameter("product_price");
 		String strQuantity = request.getParameter("product_quantity");
-
+		
+		System.out.println(strId+strName+strCode+strPrice+strQuantity);
 		Cart cart = null;
 
 		Object objCart = session.getAttribute("cart");
@@ -106,11 +116,11 @@ public class CartController extends HttpServlet {
 
 		cart.addCartItem(strId,strName, strCode, strPrice, strQuantity);
 		//@SuppressWarnings("rawtypes")
-		
-		if (!cart.equals(null)) {
-			System.out.println(cart.getCartItem(0).getItem_id());
-			
-			request.setAttribute("cart", cart);
+		@SuppressWarnings("unchecked")
+		ArrayList<Item> carts = cart.getCartItems();
+		System.out.println("Cart size" + carts.size());
+		if (!carts.isEmpty()) {
+			request.setAttribute("cart", carts);
 			//request.setAttribute("total", cart.getOrderTotal());
 			request.getRequestDispatcher("checkout.jsp").forward(request, response);
 		} else {

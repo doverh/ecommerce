@@ -8,7 +8,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
@@ -77,7 +78,7 @@ jQuery(document).ready(function($){
 </head>
 <body>
 	<div id="header"></div>
-		<div class="clear"></div>
+	<div class="clear"></div>
 	<div class="login">
 		<div class="wrap">
 			<div class="cont span_2_of_3">
@@ -154,16 +155,19 @@ jQuery(document).ready(function($){
 										class="rating-star"></label>&nbsp; (45)
 									</span>
 									<ul class="list2">
-									
-									<form method="POST" action="CartController">
-											<input type="hidden" name="itemId"
-												value="${item.getItem_id()}" />
+
+										<form method="POST" action="CartController">
+											<input type="hidden" name="product_id"
+												value="${products.getProduct_id()}" /> 
+												<input type="hidden" name="product_code" value="${products.getCode()}" /> 
+												<input type="hidden" name="product_price" value="${products.getPrice()}" /> 
+												<input type="hidden" name="product_quantity" value="1" /> 
+												<input type="hidden" name="product_name" value="${products.getProduct_name()}" />
+
 											<button type="submit" class="btn btn-link btn-xs"
-												name="action" value="add" >
-												Add To Bag
-											</button>
+												name="action" value="add">Add To Bag</button>
 										</form>
-								</ul>	
+									</ul>
 								</div>
 						</div>
 				</div>

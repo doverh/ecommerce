@@ -64,6 +64,7 @@ public class Cart {
 		Item item = new Item();
 		try {
 			
+			
 			dblUnitCost = Double.parseDouble(price);
 			iQuantity = Integer.parseInt(quantity);
 			if (iQuantity > 0) {
