@@ -97,7 +97,7 @@ public class Cart {
 		return item;
 	}
 
-	public ArrayList getCartItems() {
+	public ArrayList<Item> getCartItems() {
 		return allCartItems;
 	}
 

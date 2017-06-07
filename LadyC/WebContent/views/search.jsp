@@ -13,9 +13,11 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<!-- <script type="text/javascript" src="../js/jquery.min.js"></script>
- -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
 <script type="text/javascript">
+
         $(document).ready(function() {
             $(".dropdown img.flag").addClass("flagvisibility");
 
@@ -127,10 +129,10 @@ jQuery(document).ready(function($){
 											<div class="css3">
 												<img src="${products.getImage()}" />
 											</div>
-
+<!-- 
 											<div class="mask1">
 												<div class="info">Quick View</div>
-											</div>
+											</div> -->
 										</div>
 										<div class="price">$ ${products.getPrice()}</div>
 
@@ -155,7 +157,7 @@ jQuery(document).ready(function($){
 										class="rating-star"></label>&nbsp; (45)
 									</span>
 									<ul class="list2">
-
+																			
 										<form method="POST" action="CartController">
 											<input type="hidden" name="product_id"
 												value="${products.getProduct_id()}" /> 
@@ -164,8 +166,8 @@ jQuery(document).ready(function($){
 												<input type="hidden" name="product_quantity" value="1" /> 
 												<input type="hidden" name="product_name" value="${products.getProduct_name()}" />
 
-											<button type="submit" class="btn btn-link btn-xs"
-												name="action" value="add">Add To Bag</button>
+											<button type="submit" class="btn btn-danger"
+												name="action" value="add">BUY</button>
 										</form>
 									</ul>
 								</div>

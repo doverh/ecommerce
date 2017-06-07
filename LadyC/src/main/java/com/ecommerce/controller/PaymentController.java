@@ -23,6 +23,7 @@ public class PaymentController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		System.out.println("Session=" + session);
 		if (session.getAttribute("user") == null) {
+			//Must send the total to login and then payment
 			response.sendRedirect("login.jsp");
 		}  
 	    else{  

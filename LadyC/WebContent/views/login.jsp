@@ -83,7 +83,7 @@ jQuery(document).ready(function($){
 				<h5 class="sub_title">Register Account</h5>
 				<p>Register here and experience one of our products.</p>
 				<div class="button1">
-					<a href="register.html"><input type="submit" name="Submit"
+					<a href="register.jsp"><input type="submit" name="Submit"
 						value="Continue"></a>
 				</div>
 				<div class="clear"></div>

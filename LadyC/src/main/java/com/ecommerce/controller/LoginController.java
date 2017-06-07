@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 			if (userObject != null) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionUser", userObject);
-				response.sendRedirect("userLogged.jsp"); // logged-in page
+				response.sendRedirect("checkout.jsp"); // logged-in page
 			}
 
 			else {
