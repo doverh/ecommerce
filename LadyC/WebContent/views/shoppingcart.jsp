@@ -147,8 +147,8 @@ if(session.getAttribute("cart") == null){
 											</h6>
 										</div>
 										<form method="POST" action="CartController">
-											<input type="hidden" name="itemId"
-												value="${prod.getItem_id()}" />
+											<input type="hidden" name="productId"
+												value="${prod.getProduct_id()}" />
 											<div class="col-xs-4">
 												<input type="text" name="quantity"
 													class="form-control input-sm" value="${prod.getQuantity()}">
@@ -160,8 +160,8 @@ if(session.getAttribute("cart") == null){
 										</form>
 										<div class="col-xs-2">
 											<form method="POST" action="CartController">
-												<input type="hidden" name="itemId"
-													value="${prod.getItem_id()}" />
+												<input type="hidden" name="productId"
+													value="${prod.getProduct_id()}" />
 												<button type="submit" class="btn btn-link btn-xs"
 													name="action" value="delete">
 													<span class="glyphicon glyphicon-trash"> </span>
@@ -183,7 +183,7 @@ if(session.getAttribute("cart") == null){
 									</h4>
 								</div>
 								<div class="col-xs-3">
-									<form method="POST" action="PaymentController">
+									<form method="POST" action="CheckoutController">
 										<input type="hidden" name="orderTotal" value="${total}" />
 										<button type="submit" class="btn btn-success btn-block">
 											Checkout</button>

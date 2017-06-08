@@ -29,6 +29,7 @@ public class LoginController extends HttpServlet {
 		User userObject = null;
 		try {
 			userObject = us.authenticateUser(username, password);
+			int userId = userObject.getId();
 			HttpSession session = request.getSession();
 			Cart cart = null;
 			Object objCart = session.getAttribute("cart");
@@ -38,19 +39,21 @@ public class LoginController extends HttpServlet {
 				cart = new Cart();
 			}
 
-			ArrayList<Item> carts = cart.getCartItems();
+			ArrayList<Product> carts = cart.getCartProducts();
 
 			String greetings = "Welcome"+userObject.getFirstname()+"!";
 			
 			// Create Http session
 			if (userObject != null & !carts.isEmpty()) {
 				session.setAttribute("currentSessionUser", greetings );
+				session.setAttribute("user_id",userId);
 				request.setAttribute("products", carts);
 				request.setAttribute("total", cart.getOrderTotal());
 				request.getRequestDispatcher("payment.jsp").forward(request, response);
 			} else if (userObject != null & carts.isEmpty()){
-				session.setAttribute("currentSessionUser", greetings);
-				session.setAttribute("message", "Your cart is empty!");
+				session.setAttribute("user_id",userId);
+				request.setAttribute("currentSessionUser", greetings);
+				request.setAttribute("message", "Your cart is empty!");
 				request.getRequestDispatcher("search.jsp").forward(request, response);
 			} else {
 				String message = "Invalid credentials!";

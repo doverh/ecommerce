@@ -1,17 +1,17 @@
 package com.ecommerce.service;
 import java.util.List;
-import com.ecommerce.dao.ProductDao;
-import com.ecommerce.dao.ProductDaoImpl;
-import com.ecommerce.dto.Product;
+import com.ecommerce.dao.OrderDao;
+import com.ecommerce.dao.OrderDaoImpl;
+import com.ecommerce.dto.Item;
 import com.ecommerce.exception.ApplicationException;
 
 public class  OrderService {
 
-	/*ProductDao pdao = new ProductDaoImpl();
+	OrderDao odao = new OrderDaoImpl();
 
-	public List<Product> searchbyProduct(String search) throws ApplicationException {
-		return pdao.searchProduct(search);
+	public List<Item> searchforItems(String order_number) throws ApplicationException {
+		return odao.searchItems(order_number);
 	}
-*/
+
 }
 

@@ -1,32 +1,21 @@
 package com.ecommerce.dto;
 
+
+
 public class Item {
-	private String code;
-	private String product_name;
+	
 	private int item_id;
-	private double price;
-	private String image;
 	private int quantity;
 	private double totalCost;
+	private int order_number;
+	private double price;
+	private int product_id;
 	
-	
-	public String getCode() {
-		return code;
+	public int getProduct_id() {
+		return product_id;
 	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public String getProduct_name() {
-		return product_name;
-	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-	public int getItem_id() {
-		return item_id;
-	}
-	public void setItem_id(int item_id) {
-		this.item_id = item_id;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 	public double getPrice() {
 		return price;
@@ -34,12 +23,20 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getImage() {
-		return image;
+	public int getOrder_number() {
+		return order_number;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setOrder_number(int order_number) {
+		this.order_number = order_number;
 	}
+	
+	public int getItem_id() {
+		return item_id;
+	}
+	public void setItem_id(int item_id) {
+		this.item_id = item_id;
+	}
+	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -55,7 +52,4 @@ public class Item {
 		this.totalCost = dblTotalCost;
 		
 	}
-	
-
-	
 }

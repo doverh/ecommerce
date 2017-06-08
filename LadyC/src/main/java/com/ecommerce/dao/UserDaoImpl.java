@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 	
 	
 	
-	@SuppressWarnings("null")
+
 	@Override
 	public boolean register(User user) {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -66,60 +66,6 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-//Method to validate username and password
-//public boolean validateUser(User user) {        
-//  boolean status = false;
-//  Connection conn = null;
-//  PreparedStatement pst = null;
-//  ResultSet rs = null;
-//
-//  String url = "jdbc:mysql://localhost:8080/";
-//  String dbName = "virtual_store";
-//  String driver = "com.mysql.jdbc.Driver";
-//  String userName = "root";
-//  String password = "Dovico#29";
-//  try {
-//      Class.forName(driver).newInstance();
-//      conn = (Connection) DriverManager
-//              .getConnection(url + dbName, userName, password);
-//
-//      pst = conn
-//              .prepareStatement("select * from users where user=? and password=?");
-//      pst.setString(1, user.getUsername());
-//      pst.setString(2, user.getPassword());
-//
-//    
-//      rs = (ResultSet) pst.executeQuery();
-//      status = rs.next();
-//
-//  } catch (Exception e) {
-//      System.out.println(e);
-//  } finally {
-//      if (conn != null) {
-//          try {
-//              conn.close();
-//          } catch (SQLException e) {
-//              e.printStackTrace();
-//          }
-//      }
-//      if (pst != null) {
-//          try {
-//              pst.close();
-//          } catch (SQLException e) {
-//              e.printStackTrace();
-//          }
-//      }
-//      if (rs != null) {
-//          try {
-//              rs.close();
-//          } catch (SQLException e) {
-//              e.printStackTrace();
-//          }
-//      }
-//  }
-//  return status;
-//}
-//
 
 
 

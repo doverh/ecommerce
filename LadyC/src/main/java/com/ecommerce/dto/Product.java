@@ -9,6 +9,16 @@ public class Product {
 	private int category_id;
 	private double price;
 	private String image;
+	private int quantity;
+	private Double totalCost;
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	public String getCode() {
 		return code;
@@ -64,6 +74,15 @@ public class Product {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+	
+	public void setTotalCost(double dblTotalCost) {
+		this.totalCost = dblTotalCost;
+		
 	}
 
 }

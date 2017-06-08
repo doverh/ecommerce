@@ -134,30 +134,34 @@
 						</div>
 					</div>
 					<div class="panel-body">
-
-						<c:forEach items="${products}" var="item">
+					<form method="POST" action="OrderController">	
+						<input type="hidden" name="user_id" value="${user_id}" />
+						<input type="hidden" name="order_total" value="${cart.getOrderTotal()}" />
+						<input type="hidden" name="products" value="${products}" />
+						
+						<c:forEach items="${products}" var="products">
 							<div class="row">
 								<div class="col-xs-2">
 									<img class="img-responsive" src="http://placehold.it/100x70">${item.getImage()}
 								</div>
 								<div class="col-xs-4">
 									<h4 class="product-name">
-										<strong>${item.getProduct_name()}</strong>
+										<strong>${products.getProduct_name()}</strong>
 									</h4>
 									<h4>
-										<small>${item.getCode()}</small>
+										<small>${products.getCode()}</small>
 									</h4>
 								</div>
 								<div class="col-xs-6">
 									<div class="col-xs-6 text-right">
 										<h6>
-											<strong>$${item.getPrice()}<span class="text-muted"></span></strong>
+											<strong>$${products.getPrice()}<span class="text-muted"></span></strong>
 										</h6>
 									</div>
 									<%-- 	<%-- <form method="POST" action="CartController"> --%>
 									<div class="col-xs-4">
 										<input type="text" class="form-control input-sm"
-											name="quantity" value="${item.getQuantity()}">
+											name="quantity" value="${products.getQuantity()}">
 									</div>
 									<%-- 	<div class="col-xs-1">
 											<input type="hidden" name="itemId"
@@ -191,8 +195,9 @@
 									</h4>
 								</div>
 								<div class="col-xs-3">
-									<button type="button" class="btn btn-danger">PAY NOW</button>
+									<button type="submit" class="btn btn-danger">PAY NOW</button>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>

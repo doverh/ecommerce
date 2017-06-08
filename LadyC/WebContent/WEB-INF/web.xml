@@ -53,12 +53,22 @@
   </servlet-mapping>
    <servlet>
     <description></description>
-    <display-name>PaymentController</display-name>
-    <servlet-name>PaymentController</servlet-name>
-    <servlet-class>com.ecommerce.controller.PaymentController</servlet-class>
+    <display-name>CheckoutController</display-name>
+    <servlet-name>CheckoutController</servlet-name>
+    <servlet-class>com.ecommerce.controller.CheckoutController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>PaymentController</servlet-name>
-    <url-pattern>/views/PaymentController</url-pattern>
+    <servlet-name>CheckoutController</servlet-name>
+    <url-pattern>/views/CheckoutController</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>OrderController</display-name>
+    <servlet-name>OrderController</servlet-name>
+    <servlet-class>com.ecommerce.controller.OrderController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderController</servlet-name>
+    <url-pattern>/views/OrderController</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -3,19 +3,19 @@ package com.ecommerce.dto;
 import java.util.ArrayList;
 
 public class Cart {
-	private ArrayList<Item> allCartItems = new ArrayList<Item>();
+	private ArrayList<Product> allCartProducts = new ArrayList<Product>();
 	private double dblOrderTotal;
 
-	public int getLineItemCount() {
-		return allCartItems.size();
+	public int getLineProductCount() {
+		return allCartProducts.size();
 	}
 
-	public int getItemIndex(int id) {
+	public int getProductIndex(int id) {
 		int index = 0;
 		
-			for (Item i : allCartItems) {
-				System.out.println("Cart id = " + i.getItem_id());
-				if (i.getItem_id() == id) {
+			for (Product p : allCartProducts) {
+				System.out.println("Cart id = " + p.getProduct_id());
+				if (p.getProduct_id() == id) {
 					break;
 				}
 				index++;
@@ -24,30 +24,30 @@ public class Cart {
 
 	}
 
-	public void deleteCartItem(int itemIndex) {
+	public void deleteCartProduct(int productIndex) {
 		try {
-			allCartItems.remove(itemIndex);
+			allCartProducts.remove(productIndex);
 			calculateOrderTotal();
 		} catch (NumberFormatException nfe) {
-			System.out.println("Error while deleting cart item: " + nfe.getMessage());
+			System.out.println("Error while deleting cart Product: " + nfe.getMessage());
 			nfe.printStackTrace();
 		}
 	}
 
-	public void updateCartItem(int itemIndex, String strQuantity) {
+	public void updateCartProduct(int ProductIndex, String strQuantity) {
 		double dblTotalCost = 0.0;
 		double dblUnitCost = 0.0;
 		int iQuantity = 0;
-	    Item cartItem = null;
+	    Product cartProduct = null;
 		try {
 			
 			iQuantity = Integer.parseInt(strQuantity);
 			if (iQuantity > 0) {
-				cartItem = (Item) allCartItems.get(itemIndex);
-				dblUnitCost = cartItem.getPrice();
+				cartProduct = (Product) allCartProducts.get(ProductIndex);
+				dblUnitCost = cartProduct.getPrice();
 				dblTotalCost = dblUnitCost * iQuantity;
-				cartItem.setQuantity(iQuantity);
-				cartItem.setTotalCost(dblTotalCost);
+				cartProduct.setQuantity(iQuantity);
+				cartProduct.setTotalCost(dblTotalCost);
 				calculateOrderTotal();
 			}
 		} catch (NumberFormatException nfe) {
@@ -57,11 +57,11 @@ public class Cart {
 
 	}
 
-	public void addCartItem(String id, String name, String code, String price, String quantity) {
+	public void addCartProduct(String id, String name, String code, String price, String quantity) {
 		double dblTotalCost = 0.0;
 		double dblUnitCost = 0.0;
 		int iQuantity = 0;
-		Item item = new Item();
+		Product Product = new Product();
 		try {
 			
 			
@@ -69,13 +69,13 @@ public class Cart {
 			iQuantity = Integer.parseInt(quantity);
 			if (iQuantity > 0) {
 				dblTotalCost = dblUnitCost * iQuantity;
-				item.setItem_id(Integer.parseInt(id));
-				item.setProduct_name(name);
-				item.setCode(code);
-				item.setPrice(dblUnitCost);
-				item.setQuantity(iQuantity);
-				item.setTotalCost(dblTotalCost);
-				allCartItems.add(item);
+				Product.setProduct_id(Integer.parseInt(id));
+				//Product.setProduct_name(name);
+				//Product.setCode(code);
+				Product.setPrice(dblUnitCost);
+				Product.setQuantity(iQuantity);
+				Product.setTotalCost(dblTotalCost);
+				allCartProducts.add(Product);
 				calculateOrderTotal();
 			}
 
@@ -85,24 +85,24 @@ public class Cart {
 		}
 	}
 
-	public void addCartItem(Item item) {
-		allCartItems.add(item);
+	public void addCartProduct(Product Product) {
+		allCartProducts.add(Product);
 	}
 
-	public Item getCartItem(int iItemIndex) {
-		Item item = null;
-		if (allCartItems.size() > iItemIndex) {
-			item = (Item) allCartItems.get(iItemIndex);
+	public Product getCartProduct(int iProductIndex) {
+		Product Product = null;
+		if (allCartProducts.size() > iProductIndex) {
+			Product = (Product) allCartProducts.get(iProductIndex);
 		}
-		return item;
+		return Product;
 	}
 
-	public ArrayList<Item> getCartItems() {
-		return allCartItems;
+	public ArrayList<Product> getCartProducts() {
+		return allCartProducts;
 	}
 
-	public void setCartItems(ArrayList alCartItems) {
-		this.allCartItems = alCartItems;
+	public void setCartProducts(ArrayList<Product> alCartProducts) {
+		this.allCartProducts = alCartProducts;
 	}
 
 	public double getOrderTotal() {
@@ -115,9 +115,9 @@ public class Cart {
 
 	protected void calculateOrderTotal() {
 		double dblTotal = 0;
-		for (int counter = 0; counter < allCartItems.size(); counter++) {
-			Item item = (Item) allCartItems.get(counter);
-			dblTotal += item.getTotalCost();
+		for (int counter = 0; counter < allCartProducts.size(); counter++) {
+			Product Product = (Product) allCartProducts.get(counter);
+			dblTotal += Product.getTotalCost();
 
 		}
 		setOrderTotal(dblTotal);
