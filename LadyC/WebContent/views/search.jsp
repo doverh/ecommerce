@@ -17,65 +17,73 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
 <script type="text/javascript">
+	$(document).ready(
+			function() {
+				$(".dropdown img.flag").addClass("flagvisibility");
 
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
+				$(".dropdown dt a").click(function() {
+					$(".dropdown dd ul").toggle();
+				});
 
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-                        
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-                        
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
+				$(".dropdown dd ul li a").click(
+						function() {
+							var text = $(this).html();
+							$(".dropdown dt a span").html(text);
+							$(".dropdown dd ul").hide();
+							$("#result").html(
+									"Selected value is: "
+											+ getSelectedValue("sample"));
+						});
 
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
+				function getSelectedValue(id) {
+					return $("#" + id).find("dt a span.value").html();
+				}
 
+				$(document).bind('click', function(e) {
+					var $clicked = $(e.target);
+					if (!$clicked.parents().hasClass("dropdown"))
+						$(".dropdown dd ul").hide();
+				});
 
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
+				$("#flagSwitcher").click(function() {
+					$(".dropdown img.flag").toggleClass("flagvisibility");
+				});
+			});
+</script>
 <link href="../css/megamenu.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script type="text/javascript" src="../js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script>
+	$(document).ready(function() {
+		$(".megamenu").megamenu();
+	});
+</script>
 <!-- end menu -->
 <!-- top scrolling -->
 <script type="text/javascript" src="../js/move-top.js"></script>
 <script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1200);
 		});
-	</script>
+	});
+</script>
 
 <script src="../js/jquery-3.2.1.js"></script>
 
 
-<script> 
-jQuery(document).ready(function($){
-  $("#header").load("header.html"); 
-  /* $("#footer").load("footer.html"); 
- */});
-jQuery(document).ready(function($){
-	  $("#footer").load("footer.html"); 
-	 });
+<script>
+	jQuery(document).ready(function($) {
+		$("#header").load("header.html");
+		/* $("#footer").load("footer.html"); 
+		 */});
+	jQuery(document).ready(function($) {
+		$("#footer").load("footer.html");
+	});
 </script>
 </head>
 <body>
@@ -115,7 +123,7 @@ jQuery(document).ready(function($){
 				<div class="box1">
 					<div class="clear"></div>
 					<div>
-						<h4 class="title">${param.message}</h4>
+						<center><h3 class="m_10">${currentSessionUser}<br> ${message}</h4></center>
 					</div>
 					<div class="clear"></div>
 					<c:forEach items="${products}" var="products">
@@ -129,7 +137,7 @@ jQuery(document).ready(function($){
 											<div class="css3">
 												<img src="${products.getImage()}" />
 											</div>
-<!-- 
+											<!-- 
 											<div class="mask1">
 												<div class="info">Quick View</div>
 											</div> -->
@@ -157,17 +165,18 @@ jQuery(document).ready(function($){
 										class="rating-star"></label>&nbsp; (45)
 									</span>
 									<ul class="list2">
-																			
+
 										<form method="POST" action="CartController">
 											<input type="hidden" name="product_id"
-												value="${products.getProduct_id()}" /> 
-												<input type="hidden" name="product_code" value="${products.getCode()}" /> 
-												<input type="hidden" name="product_price" value="${products.getPrice()}" /> 
-												<input type="hidden" name="product_quantity" value="1" /> 
-												<input type="hidden" name="product_name" value="${products.getProduct_name()}" />
+												value="${products.getProduct_id()}" /> <input type="hidden"
+												name="product_code" value="${products.getCode()}" /> <input
+												type="hidden" name="product_price"
+												value="${products.getPrice()}" /> <input type="hidden"
+												name="product_quantity" value="1" /> <input type="hidden"
+												name="product_name" value="${products.getProduct_name()}" />
 
-											<button type="submit" class="btn btn-danger"
-												name="action" value="add">BUY</button>
+											<button type="submit" class="btn btn-danger" name="action"
+												value="add">BUY</button>
 										</form>
 									</ul>
 								</div>

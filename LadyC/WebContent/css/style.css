@@ -3144,8 +3144,8 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 /* Form text input */
  
 .search-wrapper input {
-width: 138px;
-height: 20px;
+width: 147px;
+height: 40px;
 padding: 10px 5px;
 float: left;
 font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';

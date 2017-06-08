@@ -99,19 +99,50 @@
 	<div class="clear"></div>
 
 	<div class="login">
-		<h4 class="title">Payment total is ${param.orderTotal}</h4>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-8">
+		<div>
+			<center>
+				<h3 class="m_10">${currentSessionUser}<br> Review your
+					order!
+					</h4>
+			</center>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<div class="row">
+								<div class="col-xs-6">
+									<h5>
+										<span class="glyphicon glyphicon-shopping-cart"></span>
+										Shopping Cart
+									</h5>
+								</div>
+								<div class="col-xs-6">
+									<form action="index.html">
+										<button type="SUBMIT" class="btn btn-primary btn-sm btn-block">
+											<span class="glyphicon glyphicon-share-alt"></span> Continue
+											shopping
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="panel-body">
-						<c:forEach items="${cart.getCartItems()}" var="item">
+
+						<c:forEach items="${products}" var="item">
 							<div class="row">
 								<div class="col-xs-2">
 									<img class="img-responsive" src="http://placehold.it/100x70">${item.getImage()}
 								</div>
 								<div class="col-xs-4">
 									<h4 class="product-name">
-										<strong>${item.getItem_name()}</strong>
+										<strong>${item.getProduct_name()}</strong>
 									</h4>
 									<h4>
 										<small>${item.getCode()}</small>
@@ -123,12 +154,12 @@
 											<strong>$${item.getPrice()}<span class="text-muted"></span></strong>
 										</h6>
 									</div>
-									<form method="POST" action="CartController">
-										<div class="col-xs-4">
-											<input type="text" class="form-control input-sm"
-												name="quantity" value="${item.getQuantity()}">
-										</div>
-										<div class="col-xs-1">
+									<%-- 	<%-- <form method="POST" action="CartController"> --%>
+									<div class="col-xs-4">
+										<input type="text" class="form-control input-sm"
+											name="quantity" value="${item.getQuantity()}">
+									</div>
+									<%-- 	<div class="col-xs-1">
 											<input type="hidden" name="itemId"
 												value="${item.getItem_id()}" />
 											<button type="submit" class="btn btn-link btn-xs"
@@ -146,8 +177,7 @@
 												<span class="glyphicon glyphicon-trash"> </span>
 											</button>
 										</form>
-									</div>
-
+									</div>--%>
 
 								</div>
 							</div>
@@ -161,18 +191,17 @@
 									</h4>
 								</div>
 								<div class="col-xs-3">
-									<button type="button" class="btn btn-success btn-block">
-										Checkout</button>
+									<button type="button" class="btn btn-danger">PAY NOW</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div> --%>
+		</div>
 
-</div>
-		<%-- 
+	</div>
+	<%-- 
 	
 	
 			<ul>
@@ -213,6 +242,6 @@
 				<script src="../js/customjs.js"></script>
 				</p>
  --%>
-		<div id="footer"></div>
+	<div id="footer"></div>
 </body>
 </html>

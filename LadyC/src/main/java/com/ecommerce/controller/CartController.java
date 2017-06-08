@@ -37,10 +37,31 @@ public class CartController extends HttpServlet {
 				updateCart(request, response);
 			} else if (strAction.equals("delete")) {
 				deleteCart(request, response);
+			} }else{
+				HttpSession session = request.getSession();
+				Cart cart = null;
+
+				Object objCart = session.getAttribute("cart");
+				if (objCart != null) {
+					cart = (Cart) objCart;
+				} else {
+					cart = new Cart();
+				}
+
+				ArrayList<Item> carts = cart.getCartItems();
+
+				if (!carts.isEmpty()) {
+					request.setAttribute("products", carts);
+					request.setAttribute("total", cart.getOrderTotal());
+					request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
+				} else {
+					String message = "Shopping cart is empty!";
+					response.sendRedirect("search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+				}
+
+				
 			}
 		}
-		// response.sendRedirect("checkout.jsp");
-	}
 
 	/* Method receives item code and call deleteCart sending item index */
 	protected void deleteCart(HttpServletRequest request, HttpServletResponse response)
@@ -68,7 +89,7 @@ public class CartController extends HttpServlet {
 		if (!carts.isEmpty()) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cart.getOrderTotal());
-			request.getRequestDispatcher("checkout.jsp").forward(request, response);
+			request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
 		} else {
 			String message = "Shopping cart is empty!";
 			response.sendRedirect("search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
@@ -97,7 +118,7 @@ public class CartController extends HttpServlet {
 		if (!carts.isEmpty()) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cart.getOrderTotal());
-			request.getRequestDispatcher("checkout.jsp").forward(request, response);
+			request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
 		} else {
 			String message = "Shopping cart is empty!";
 			response.sendRedirect("checkout.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
@@ -128,7 +149,7 @@ public class CartController extends HttpServlet {
 		if (!carts.isEmpty()) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cart.getOrderTotal());
-			request.getRequestDispatcher("checkout.jsp").forward(request, response);
+			request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
 		} else {
 			String message = "Shopping cart is empty!";
 			response.sendRedirect("checkout.jsp?message=" + URLEncoder.encode(message, "UTF-8"));

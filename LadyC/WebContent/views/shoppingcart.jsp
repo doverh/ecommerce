@@ -99,6 +99,9 @@ if(session.getAttribute("cart") == null){
 	<div id="header"></div>
 	<div class="login">
 		<div class="container">
+		<div>
+						<center><h4 class="m_10">${currentSessionUser}<br> ${message}</h4></center>
+					</div>
 			<div class="row">
 				<div class="col-xs-8">
 					<div class="panel panel-info">

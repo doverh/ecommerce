@@ -1,5 +1,10 @@
 <!DOCTYPE HTML>
 <html>
+
+<head>
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
 <body>
 	<div class="header-top">
 		<div class="wrap">
@@ -12,10 +17,15 @@
 
 			<div class="cssmenu">
 				<ul>
-					<li class="active"><a href="register.jsp">Sign up & Save</a></li>
-					<li><a href="shop.html">Store Locator</a></li>
-					<li><a href="login.jsp">My Account</a></li>
-					<li><a href="checkout.jsp">CheckOut</a></li>
+					<li class="active"><a href="register.jsp">Sign up</a></li>
+					<li><a href="shop.html">Shop</a></li>
+					<li><a href="login.jsp">Login</a></li>
+					<li><form method="POST" action="CartController">
+					<button type="submit">
+   						<span class="glyphicon glyphicon-shopping-cart">CART</span>
+					</button>
+					</form></li>
+
 				</ul>
 			</div>
 			<!-- <ul class="icon2 sub-icon2 profile_img">

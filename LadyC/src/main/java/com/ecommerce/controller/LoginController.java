@@ -5,6 +5,7 @@ import com.ecommerce.exception.ApplicationException;
 import com.ecommerce.service.*;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,22 +29,37 @@ public class LoginController extends HttpServlet {
 		User userObject = null;
 		try {
 			userObject = us.authenticateUser(username, password);
-
-			// Create Http session
-			if (userObject != null) {
-				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionUser", userObject);
-				response.sendRedirect("checkout.jsp"); // logged-in page
+			HttpSession session = request.getSession();
+			Cart cart = null;
+			Object objCart = session.getAttribute("cart");
+			if (objCart != null) {
+				cart = (Cart) objCart;
+			} else {
+				cart = new Cart();
 			}
 
-			else {
+			ArrayList<Item> carts = cart.getCartItems();
+
+			String greetings = "Welcome"+userObject.getFirstname()+"!";
+			
+			// Create Http session
+			if (userObject != null & !carts.isEmpty()) {
+				session.setAttribute("currentSessionUser", greetings );
+				request.setAttribute("products", carts);
+				request.setAttribute("total", cart.getOrderTotal());
+				request.getRequestDispatcher("payment.jsp").forward(request, response);
+			} else if (userObject != null & carts.isEmpty()){
+				session.setAttribute("currentSessionUser", greetings);
+				session.setAttribute("message", "Your cart is empty!");
+				request.getRequestDispatcher("search.jsp").forward(request, response);
+			} else {
 				String message = "Invalid credentials!";
 				response.sendRedirect("login.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 			}
 			// response.sendRedirect("invalid_login.jsp"); //error page
 		} catch (ApplicationException e) {
 			System.out.println(e);
-			response.sendRedirect("invalid_login.jsp");
+			response.sendRedirect("index.html");
 		}
 
 	}
