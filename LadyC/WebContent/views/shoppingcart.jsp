@@ -17,50 +17,6 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
 
-<!-- <script type="text/javascript" src="../js/jquery.min.js"></script>
- -->
-<script type="text/javascript">
-	$(document).ready(
-			function() {
-				$(".dropdown img.flag").addClass("flagvisibility");
-
-				$(".dropdown dt a").click(function() {
-					$(".dropdown dd ul").toggle();
-				});
-
-				$(".dropdown dd ul li a").click(
-						function() {
-							var text = $(this).html();
-							$(".dropdown dt a span").html(text);
-							$(".dropdown dd ul").hide();
-							$("#result").html(
-									"Selected value is: "
-											+ getSelectedValue("sample"));
-						});
-
-				function getSelectedValue(id) {
-					return $("#" + id).find("dt a span.value").html();
-				}
-
-				$(document).bind('click', function(e) {
-					var $clicked = $(e.target);
-					if (!$clicked.parents().hasClass("dropdown"))
-						$(".dropdown dd ul").hide();
-				});
-
-				$("#flagSwitcher").click(function() {
-					$(".dropdown img.flag").toggleClass("flagvisibility");
-				});
-			});
-</script>
-<link href="../css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="../js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
 <!-- end menu -->
 <!-- top scrolling -->
 <script type="text/javascript" src="../js/move-top.js"></script>
@@ -90,12 +46,12 @@
 </script>
 </head>
 <body>
-	<% //allow access only if session exists
+	<%-- <% //allow access only if session exists
 Object cart = null;
 if(session.getAttribute("cart") == null){
 	response.sendRedirect("index.html");
 }else cart =  session.getAttribute("cart");
-%>
+%> --%>
 	<div id="header"></div>
 	<div class="login">
 		<div class="container">

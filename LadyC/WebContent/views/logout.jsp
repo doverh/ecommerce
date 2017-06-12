@@ -8,9 +8,9 @@
 </head>
 <body>
 	<%
-session.setAttribute("userName", null);
-session.invalidate();
-response.sendRedirect("login.jsp");
-%>
+		session.setAttribute("userName", null);
+		session.invalidate();
+		response.sendRedirect("login.jsp");
+	%>
 </body>
 </html>

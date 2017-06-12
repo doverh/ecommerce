@@ -23,6 +23,17 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>LogoutController</display-name>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>com.ecommerce.controller.LogoutController</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/views/LogoutController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>RegistrationController</display-name>
     <servlet-name>RegistrationController</servlet-name>
     <servlet-class>com.ecommerce.controller.RegistrationController</servlet-class>

@@ -21,19 +21,17 @@ public class ItemDaoImpl implements ItemDao {
            return sessionFactory.openSession();
     }
 	@Override
-	public boolean registerItem(Item item, int productId) {
+	public Item registerItem(Item item) {
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 			Session session = sessionFactory.openSession();
 					
 			if (session == null){
-				return false;
+				return null;
 			}else{
-				item.setProduct_id(productId);
 				session.beginTransaction();
 				session.saveOrUpdate(item);
 				session.getTransaction().commit();
-				session.close();
-				return true;
+				return item;
 			}
 		}
 }

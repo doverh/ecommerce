@@ -31,6 +31,8 @@ public class LoginController extends HttpServlet {
 			userObject = us.authenticateUser(username, password);
 			int userId = userObject.getId();
 			HttpSession session = request.getSession();
+			Object logged = session.getAttribute("login");
+			
 			Cart cart = null;
 			Object objCart = session.getAttribute("cart");
 			if (objCart != null) {
@@ -43,22 +45,26 @@ public class LoginController extends HttpServlet {
 
 			String greetings = "Welcome"+userObject.getFirstname()+"!";
 			
-			// Create Http session
-			if (userObject != null & !carts.isEmpty()) {
-				session.setAttribute("currentSessionUser", greetings );
-				session.setAttribute("user_id",userId);
-				request.setAttribute("products", carts);
-				request.setAttribute("total", cart.getOrderTotal());
-				request.getRequestDispatcher("payment.jsp").forward(request, response);
-			} else if (userObject != null & carts.isEmpty()){
-				session.setAttribute("user_id",userId);
-				request.setAttribute("currentSessionUser", greetings);
-				request.setAttribute("message", "Your cart is empty!");
-				request.getRequestDispatcher("search.jsp").forward(request, response);
-			} else {
-				String message = "Invalid credentials!";
-				response.sendRedirect("login.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
-			}
+				if (userObject != null & !carts.isEmpty()) {
+					// Create Http session
+					session.setAttribute("login", "logged");
+					session.setAttribute("currentSessionUser", greetings );
+					session.setAttribute("user_id",userId);
+					request.setAttribute("products", carts);
+					request.setAttribute("total", cart.getOrderTotal());
+					request.getRequestDispatcher("payment.jsp").forward(request, response);
+				} else if (userObject != null & carts.isEmpty()){
+					// Create Http session
+					session.setAttribute("login", "logged");
+					session.setAttribute("user_id",userId);
+					request.setAttribute("currentSessionUser", greetings);
+					request.setAttribute("message", "Your cart is empty!");
+					request.getRequestDispatcher("search.jsp").forward(request, response);
+				} else {
+					String message = "Invalid credentials!";
+					
+					response.sendRedirect("login.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+				}
 			// response.sendRedirect("invalid_login.jsp"); //error page
 		} catch (ApplicationException e) {
 			System.out.println(e);

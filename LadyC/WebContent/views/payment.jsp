@@ -24,63 +24,6 @@
 	media="all" />
 </head>
 
-<script type="text/javascript">
-	$(document).ready(
-			function() {
-				$(".dropdown img.flag").addClass("flagvisibility");
-
-				$(".dropdown dt a").click(function() {
-					$(".dropdown dd ul").toggle();
-				});
-
-				$(".dropdown dd ul li a").click(
-						function() {
-							var text = $(this).html();
-							$(".dropdown dt a span").html(text);
-							$(".dropdown dd ul").hide();
-							$("#result").html(
-									"Selected value is: "
-											+ getSelectedValue("sample"));
-						});
-
-				function getSelectedValue(id) {
-					return $("#" + id).find("dt a span.value").html();
-				}
-
-				$(document).bind('click', function(e) {
-					var $clicked = $(e.target);
-					if (!$clicked.parents().hasClass("dropdown"))
-						$(".dropdown dd ul").hide();
-				});
-
-				$("#flagSwitcher").click(function() {
-					$(".dropdown img.flag").toggleClass("flagvisibility");
-				});
-			});
-</script>
-<link href="../css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="../js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
-<!-- end menu -->
-<!-- top scrolling -->
-<script type="text/javascript" src="../js/move-top.js"></script>
-<script type="text/javascript" src="../js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event) {
-			event.preventDefault();
-			$('html,body').animate({
-				scrollTop : $(this.hash).offset().top
-			}, 1200);
-		});
-	});
-</script>
-
 <script src="../js/jquery-3.2.1.js"></script>
 
 
@@ -137,8 +80,8 @@
 					<form method="POST" action="OrderController">	
 						<input type="hidden" name="user_id" value="${user_id}" />
 						<input type="hidden" name="order_total" value="${cart.getOrderTotal()}" />
-						<input type="hidden" name="products" value="${products}" />
-						
+						<% String listProducts = request.getParameter("products"); 
+						request.setAttribute("productList",listProducts);%>
 						<c:forEach items="${products}" var="products">
 							<div class="row">
 								<div class="col-xs-2">

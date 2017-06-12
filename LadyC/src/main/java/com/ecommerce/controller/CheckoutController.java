@@ -23,8 +23,10 @@ public class CheckoutController extends HttpServlet {
 		
 		String total = request.getParameter("orderTotal");
 		HttpSession session = request.getSession();
+		Object logged = session.getAttribute("login");
 		Object objCart = session.getAttribute("cart");
 		
+				System.out.println("Session"+session.getAttribute("cart"));
 		Cart cartSh = null;
 		if (objCart != null) {
 			cartSh = (Cart) objCart;
@@ -34,9 +36,9 @@ public class CheckoutController extends HttpServlet {
 
 		ArrayList<Product> carts = cartSh.getCartProducts();
 
-		System.out.println("Session"+objCart);
+		System.out.println("Session loggeds"+logged);
 		// Create Http session
-		if (objCart != null ) {
+		if (objCart != null & logged != null) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cartSh.getOrderTotal());
 			request.getRequestDispatcher("payment.jsp").forward(request, response);

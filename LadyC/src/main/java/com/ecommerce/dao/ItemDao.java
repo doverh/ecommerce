@@ -6,6 +6,6 @@ import com.ecommerce.dto.Item;
 
 public interface ItemDao {
 	
-	boolean registerItem(Item item, int product_id);	
+	Item registerItem(Item item);	
 	
 }
