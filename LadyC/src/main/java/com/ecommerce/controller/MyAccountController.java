@@ -1,21 +1,11 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.dao.ItemDao;
-import com.ecommerce.dao.ItemDaoImpl;
 import com.ecommerce.dao.MyAccountDao;
 import com.ecommerce.dao.MyAccountDaoImpl;
-import com.ecommerce.dao.OrderDao;
-import com.ecommerce.dao.OrderDaoImpl;
-import com.ecommerce.dto.Cart;
 import com.ecommerce.dto.Item;
-import com.ecommerce.dto.Order;
-import com.ecommerce.dto.Product;
 import com.ecommerce.dto.User;
-import com.ecommerce.service.*;
 
-import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//This class takes input from Payment.jsp page and controls the flow based on validation with database
+//This class present to the user orders that he sent
 
 public class MyAccountController extends HttpServlet {
 
@@ -39,12 +29,21 @@ public class MyAccountController extends HttpServlet {
 
 		// If there is a user ID
 		if (objUser != null) {
-			User user = (User) objUser;
-		
+			System.out.println("User id"+Integer.parseInt(objUser.toString()));
 			// Select all orders with given user ID
 			MyAccountDao myA = new MyAccountDaoImpl();
-			List orderList = myA.searchOrderbyUser(user.getId());
-
+			List<Object[]> orderList = myA.searchOrderbyUser(Integer.parseInt(objUser.toString()));
+			
+			for (Object[] result: orderList){
+				System.out.println("Item: "+result[0]);
+				System.out.println("Item: "+result[1]);
+				System.out.println("Item: "+result[2]);
+				System.out.println("Item: "+result[3]);
+				System.out.println("Item: "+result[4]);
+				
+			}
+			
+			
 			if (!orderList.isEmpty()) {
 				request.setAttribute("orders", orderList);
 				request.getRequestDispatcher("myAccount.jsp").forward(request, response);

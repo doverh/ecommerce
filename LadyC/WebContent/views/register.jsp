@@ -17,7 +17,7 @@
 
 <script> 
 jQuery(document).ready(function($){
-  $("#header").load("header.html"); 
+  $("#header").load("header.jsp"); 
   /* $("#footer").load("footer.html"); 
  */});
 jQuery(document).ready(function($){

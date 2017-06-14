@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//This class takes input from Login.jsp page and controls the flow based on validation with database
+//This class takes input from register.jsp page and create a new user
 
 public class RegistrationController extends HttpServlet {
 

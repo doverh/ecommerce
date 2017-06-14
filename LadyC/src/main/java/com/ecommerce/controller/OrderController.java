@@ -11,6 +11,7 @@ import com.ecommerce.dto.Product;
 import com.ecommerce.service.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//This class takes input from Payment.jsp page and controls the flow based on validation with database
-
+//This class takes input from Payment.jsp to create the order and stores items
 public class OrderController extends HttpServlet {
 
 	private static final long serialVersionUID = 2562294252731783855L;
@@ -55,6 +55,7 @@ public class OrderController extends HttpServlet {
 			Order order = new Order();
 			order.setAmount(total);
 			order.setUser_id(user_id);
+			order.setOrder_date(LocalDateTime.now().toString());
 			OrderDao Odao = new OrderDaoImpl();
 			Order newOrder = Odao.registerOrder(order);
 			
@@ -71,8 +72,7 @@ public class OrderController extends HttpServlet {
 				items.add(iDao.registerItem(item));
 				System.out.println(item.getItem_id());
 			}
-			
-			
+				
 			
 			request.setAttribute("items", items);
 			request.setAttribute("orderNum", newOrder.getOrder_number());

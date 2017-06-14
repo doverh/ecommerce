@@ -10,13 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//This class takes input from Login.jsp page and controls the flow based on validation with database
+//This class add, delete or update products from the shopping cart
 
 public class CartController extends HttpServlet {
 
 	private static final long serialVersionUID = 2562294252731783855L;
-
-	// public static final String addToCart
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

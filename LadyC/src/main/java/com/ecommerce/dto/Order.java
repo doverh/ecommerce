@@ -8,7 +8,14 @@ public class Order {
 	private int user_id;
 	private double amount;
 	private ArrayList<Item> allCartItems;
+	private String order_date;
 	
+	public String getOrder_date() {
+		return order_date;
+	}
+	public void setOrder_date(String order_date) {
+		this.order_date = order_date;
+	}
 	public int getOrder_number() {
 		return order_number;
 	}

@@ -32,12 +32,6 @@ public class OrderDaoImpl implements OrderDao {
 				session.beginTransaction();
 				session.saveOrUpdate(order);
 				session.getTransaction().commit();
-				
-				//Query to obtain new order number
-				
-//				Query query = session.createQuery("from orders by order_number DESC");
-//				//query.setMaxResults(1);
-//				int newOrder =  (int) query.uniqueResult();
 //				session.close();
 				return order;
 				

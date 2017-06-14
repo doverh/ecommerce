@@ -8,36 +8,142 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+ 
 
 <script src="../js/jquery-3.2.1.js"></script>
 
 
-<script>
-	jQuery(document).ready(function($) {
-		$("#header").load("header.jsp");
-		/* $("#footer").load("footer.html"); 
-		 */});
-	jQuery(document).ready(function($) {
-		$("#footer").load("footer.html");
-	});
+<script> 
+jQuery(document).ready(function($){
+  $("#header").load("header.jsp"); 
+  /* $("#footer").load("footer.html"); 
+ */});
+jQuery(document).ready(function($){
+	  $("#footer").load("footer.html"); 
+	 });
 </script>
 </head>
 <body>
 	<div id="header"></div>
 	<div class="clear"></div>
+	<div class="index-banner">
+		<div class="wmuSlider example1" style="height: 560px;">
+			<div class="wmuSliderWrapper">
+				<article style="position: relative; width: 100%; opacity: 1;">
+					<div class="banner-wrap">
+						<div class="slider-left">
+							<img src="../images/banner1.jpg" alt="" />
+						</div>
+						<div class="slider-right">
+							<h1>Classic</h1>
+							<h2>White</h2>
+							<p>Lorem ipsum dolor sit amet</p>
+							<div class="btn">
+								<a href="shop.html">Shop Now</a>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</article>
+				<article style="position: absolute; width: 100%; opacity: 0;">
+					<div class="banner-wrap">
+						<div class="slider-left">
+							<img src="../images/banner2.jpg" alt="" />
+						</div>
+						<div class="slider-right">
+							<h1>Classic</h1>
+							<h2>White</h2>
+							<p>Lorem ipsum dolor sit amet</p>
+							<div class="btn">
+								<a href="shop.html">Shop Now</a>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</article>
+				<article style="position: absolute; width: 100%; opacity: 0;">
+					<div class="banner-wrap">
+						<div class="slider-left">
+							<img src="../images/banner1.jpg" alt="" />
+						</div>
+						<div class="slider-right">
+							<h1>Classic</h1>
+							<h2>White</h2>
+							<p>Lorem ipsum dolor sit amet</p>
+							<div class="btn">
+								<a href="shop.html">Shop Now</a>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</article>
+				<article style="position: absolute; width: 100%; opacity: 0;">
+					<div class="banner-wrap">
+						<div class="slider-left">
+							<img src="../images/banner2.jpg" alt="" />
+						</div>
+						<div class="slider-right">
+							<h1>Classic</h1>
+							<h2>White</h2>
+							<p>Lorem ipsum dolor sit amet</p>
+							<div class="btn">
+								<a href="shop.html">Shop Now</a>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</article>
+				<article style="position: absolute; width: 100%; opacity: 0;">
+					<div class="banner-wrap">
+						<div class="slider-left">
+							<img src="../images/banner1.jpg" alt="" />
+						</div>
+						<div class="slider-right">
+							<h1>Classic</h1>
+							<h2>White</h2>
+							<p>Lorem ipsum dolor sit amet</p>
+							<div class="btn">
+								<a href="shop.html">Shop Now</a>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</article>
+			</div>
+			<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
+			<ul class="wmuSliderPagination">
+				<li><a href="#" class="">0</a></li>
+				<li><a href="#" class="">1</a></li>
+				<li><a href="#" class="wmuActive">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+			</ul>
+			<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
+			<ul class="wmuSliderPagination">
+				<li><a href="#" class="wmuActive">0</a></li>
+				<li><a href="#" class="">1</a></li>
+				<li><a href="#" class="">2</a></li>
+				<li><a href="#" class="">3</a></li>
+				<li><a href="#" class="">4</a></li>
+			</ul>
+		</div>
+		<script src="../js/jquery.wmuSlider.js"></script>
+		<script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+		<script>
+       						 $('.example1').wmuSlider();         
+   						</script>
+	</div>
+	<div class="clear"></div>
 	<div class="login">
 		<div class="wrap">
 			<div class="cont span_2_of_3">
 				<div class="mens-toolbar">
-					<div class="sort">
+<!-- 					<div class="sort">
 						<div class="sort-by">
 							<label>Sort By</label> <select>
 								<option value="">Popularity</option>
@@ -47,7 +153,7 @@
 								class="v-middle"></a>
 						</div>
 					</div>
-					<div class="pager">
+ 					<div class="pager">
 						<div class="limiter visible-desktop">
 							<label>Show</label> <select>
 								<option value="" selected="selected">9</option>
@@ -63,12 +169,8 @@
 						<div class="clear"></div>
 					</div>
 					<div class="clear"></div>
-				</div>
+				</div>-->
 				<div class="box1">
-					<div class="clear"></div>
-					<div>
-						<center><h3 class="m_10">${currentSessionUser}<br> ${message}</h4></center>
-					</div>
 					<div class="clear"></div>
 					<c:forEach items="${products}" var="products">
 						<div class="col_1_of_single1 span_1_of_single1">
@@ -131,26 +233,6 @@
 				<div class="clear"></div>
 
 
-
-
-				<script type="text/javascript">
-					$(document).ready(function() {
-
-						var defaults = {
-							containerID : 'toTop', // fading element id
-							containerHoverID : 'toTopHover', // fading element hover id
-							scrollSpeed : 1200,
-							easingType : 'linear'
-						};
-
-						$().UItoTop({
-							easingType : 'easeOutQuart'
-						});
-
-					});
-				</script>
-				<a href="#" id="toTop" style="display: block;"><span
-					id="toTopHover" style="opacity: 1;"></span></a>
-				<div id="footer"></div>
+	<div id="footer"></div>
 </body>
 </html>

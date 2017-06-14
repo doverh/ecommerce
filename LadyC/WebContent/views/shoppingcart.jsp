@@ -37,7 +37,7 @@
 
 <script>
 	jQuery(document).ready(function($) {
-		$("#header").load("header.html");
+		$("#header").load("header.jsp");
 		/* $("#footer").load("footer.html"); 
 		 */});
 	jQuery(document).ready(function($) {
@@ -71,7 +71,7 @@ if(session.getAttribute("cart") == null){
 										</h5>
 									</div>
 									<div class="col-xs-6">
-										<form action="index.html">
+										<form action="index">
 											<button type="SUBMIT"
 												class="btn btn-primary btn-sm btn-block">
 												<span class="glyphicon glyphicon-share-alt"></span> Continue

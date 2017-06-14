@@ -35,8 +35,18 @@ public class ProductDaoImpl implements ProductDao {
 		session.close();
 		return list;
 		}
+	@Override
+	public List<Product> searchAll() {
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		//Query using Hibernate Query Language
+		String SQL_QUERY =" from Product";
+		Query query = session.createQuery(SQL_QUERY);
+		@SuppressWarnings("unchecked")
+		List<Product> list = query.list();
+		session.close();
+		return list;
+		}
 	}
-
-
-
-
+	

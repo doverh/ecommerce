@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//This class takes input from Login.jsp page and controls the flow based on validation with database
+//This class takes input from Login.jsp page and authenticate user in the system
 
 public class LoginController extends HttpServlet {
 

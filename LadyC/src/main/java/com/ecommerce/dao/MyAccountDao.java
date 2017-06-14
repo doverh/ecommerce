@@ -2,10 +2,12 @@ package com.ecommerce.dao;
 
 import java.util.List;
 
+import com.ecommerce.dto.Item;
+
 
 public interface MyAccountDao {
 	
 	
-	List searchOrderbyUser(int userid);
+	List<Object[]> searchOrderbyUser(int userid);
 	
 }

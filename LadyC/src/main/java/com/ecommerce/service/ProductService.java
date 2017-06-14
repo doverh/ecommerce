@@ -14,5 +14,9 @@ public class ProductService {
 	public List<Product> searchbyProduct(String search) throws ApplicationException {
 		return pdao.searchProduct(search);
 	}
+		public List<Product> searchAllProducts()throws ApplicationException {
+			return pdao.searchAll();
+		} 
+	
 
 }

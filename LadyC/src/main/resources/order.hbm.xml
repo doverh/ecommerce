@@ -14,5 +14,8 @@
 		<property name="amount" type="java.lang.Double">
 			<column name="amount" />
 		</property>
+		<property name="order_date" type="java.lang.String">
+			<column name="order_date" />
+		</property>
 	</class>
 </hibernate-mapping>  

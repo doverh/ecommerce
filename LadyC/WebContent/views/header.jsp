@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 
@@ -9,21 +10,18 @@
 	<script type="text/javascript">
 		function sendLogout() {
 			document.forms["checkoutForm"].submit();
-			;
 		}
-	</script>
-
-	<script type="text/javascript">
 		function sendMyAccount() {
-			document.forms["checkoutMyAccount"].submit();
-			;
+			document.forms["myAccountForm"].submit();
 		}
 	</script>
 	<div class="header-top">
 		<div class="wrap">
+
 			<div class="logo">
-				<a href="index.html"><img src="../images/logo.png" alt="" /></a>
+				<a href="<c:url value="/views/index"/>"><img src="../images/logo.png" alt="" /></a>
 			</div>
+
 			<script type="text/javascript">
 				$(document)
 						.ready(

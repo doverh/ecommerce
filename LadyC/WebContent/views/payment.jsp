@@ -29,7 +29,7 @@
 
 <script>
 	jQuery(document).ready(function($) {
-		$("#header").load("header.html");
+		$("#header").load("header.jsṕ");
 		/* $("#footer").load("footer.html"); 
 		 */});
 	jQuery(document).ready(function($) {
@@ -66,7 +66,7 @@
 									</h5>
 								</div>
 								<div class="col-xs-6">
-									<form action="index.html">
+									<form action="index">
 										<button type="SUBMIT" class="btn btn-primary btn-sm btn-block">
 											<span class="glyphicon glyphicon-share-alt"></span> Continue
 											shopping

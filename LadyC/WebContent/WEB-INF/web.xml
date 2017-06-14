@@ -52,7 +52,17 @@
     <servlet-name>ProductController</servlet-name>
     <url-pattern>/views/ProductController</url-pattern>
   </servlet-mapping>
-     <servlet>
+   <servlet>
+    <description></description>
+    <display-name>IndexController</display-name>
+    <servlet-name>IndexController</servlet-name>
+    <servlet-class>com.ecommerce.controller.IndexController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexController</servlet-name>
+    <url-pattern>/views/index</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>CartController</display-name>
     <servlet-name>CartController</servlet-name>
@@ -81,5 +91,15 @@
   <servlet-mapping>
     <servlet-name>OrderController</servlet-name>
     <url-pattern>/views/OrderController</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>MyAccountController</display-name>
+    <servlet-name>MyAccountController</servlet-name>
+    <servlet-class>com.ecommerce.controller.MyAccountController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyAccountController</servlet-name>
+    <url-pattern>/views/MyAccountController</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -3231,3 +3231,16 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
     padding: 0;
 }    
 
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
