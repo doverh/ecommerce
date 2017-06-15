@@ -23,7 +23,18 @@ jQuery(document).ready(function($){
 jQuery(document).ready(function($){
 	  $("#footer").load("footer.html"); 
 	 });
+
+$(document).ready(function(){
+  $('#id_password_field').val('password');        
+   $('#id_password_field').click(function(){
+       if($(this).val()=='password'){$(this).val('')}
+   });
+   $('#id_password_field').focus(function(){
+       if($(this).val()=='password'){$(this).val('')}
+   });
+});
 </script>
+
 </head>
 <body>
 	<div id="header"></div>
@@ -31,27 +42,27 @@ jQuery(document).ready(function($){
 	<div class="register_account">
 		<div class="wrap">
 			<h4 class="title">Create an Account</h4>
-			<form method="post" action="RegistrationController">
+			<form method="post" action="register.do">
 				<div class="col_1_of_2 span_1_of_2">
 					<div>
-						<input type="text" name="username" value="Username"
+						<input type="text" name="username" value="Username" 
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Username';}">
 					</div>
 					<div>
-						<input type="text" name="pwd" value="Password"
+						<input type="password" name="pwd" value="Password" placeholder="Password"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'password';}">
 					</div>
 					<div>
-						<input type="text" name="fisrtname" value="First Name"
+						<input type="text" name="firstname" value="First Name"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'First Name';}">
 					</div>
 					<div>
 						<input type="text" name="lastname" value="Last Name"
 							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Phone';}">
+							onblur="if (this.value == '') {this.value = 'Last Name';}">
 					</div>
 					<div>
 						<input type="text" name="email" value="E-mail"
@@ -135,6 +146,7 @@ jQuery(document).ready(function($){
 					</div>
 
 				</div>
+				<input type="hidden" name="action" value="register" />
 				<button class="grey">Submit</button>
 				<p class="terms">
 					By clicking 'Create Account' you agree to the <a href="#">Terms

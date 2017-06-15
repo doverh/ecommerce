@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <body>
@@ -6,20 +7,20 @@
 			<div class="wrap">
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="../images/f_icon.png" alt="" /><span
+						<li><img src="${pageContext.request.contextPath}/images/f_icon.png" alt="" /><span
 							class="delivery">Free delivery on all orders over Â£100*</span></li>
 					</ul>
 				</div>
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="../images/f_icon1.png" alt="" /><span
+						<li><img src="${pageContext.request.contextPath}/images/f_icon1.png" alt="" /><span
 							class="delivery">Customer Service :<span class="orange">
 									(800) 000-2587 (freephone)</span></span></li>
 					</ul>
 				</div>
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="../images/f_icon2.png" alt="" /><span
+						<li><img src="${pageContext.request.contextPath}/images/f_icon2.png" alt="" /><span
 							class="delivery">Fast delivery & free returns</span></li>
 					</ul>
 				</div>
@@ -37,17 +38,17 @@
 							<dd>
 								<ul>
 									<li><a href="#">Australia<img class="flag"
-											src="../images/as.png" alt="" /><span class="value">AS</span></a></li>
+											src="${pageContext.request.contextPath}/images/as.png" alt="" /><span class="value">AS</span></a></li>
 									<li><a href="#">Sri Lanka<img class="flag"
-											src="../images/srl.png" alt="" /><span class="value">SL</span></a></li>
+											src="${pageContext.request.contextPath}/images/srl.png" alt="" /><span class="value">SL</span></a></li>
 									<li><a href="#">Newziland<img class="flag"
-											src="../images/nz.png" alt="" /><span class="value">NZ</span></a></li>
+											src="${pageContext.request.contextPath}/images/nz.png" alt="" /><span class="value">NZ</span></a></li>
 									<li><a href="#">Pakistan<img class="flag"
-											src="../images/pk.png" alt="" /><span class="value">Pk</span></a></li>
+											src="${pageContext.request.contextPath}/images/pk.png" alt="" /><span class="value">Pk</span></a></li>
 									<li><a href="#">United Kingdom<img class="flag"
-											src="../images/uk.png" alt="" /><span class="value">UK</span></a></li>
+											src="${pageContext.request.contextPath}/images/uk.png" alt="" /><span class="value">UK</span></a></li>
 									<li><a href="#">United States<img class="flag"
-											src="../images/us.png" alt="" /><span class="value">US</span></a></li>
+											src="${pageContext.request.contextPath}/images/us.png" alt="" /><span class="value">US</span></a></li>
 								</ul>
 							</dd>
 						</dl>

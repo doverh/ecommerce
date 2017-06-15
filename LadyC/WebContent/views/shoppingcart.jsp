@@ -41,7 +41,7 @@
 		/* $("#footer").load("footer.html"); 
 		 */});
 	jQuery(document).ready(function($) {
-		$("#footer").load("footer.html");
+		$("#footer").load("footer.jsp");
 	});
 </script>
 </head>
@@ -71,7 +71,7 @@ if(session.getAttribute("cart") == null){
 										</h5>
 									</div>
 									<div class="col-xs-6">
-										<form action="index">
+										<form action="*.do">
 											<button type="SUBMIT"
 												class="btn btn-primary btn-sm btn-block">
 												<span class="glyphicon glyphicon-share-alt"></span> Continue
@@ -102,7 +102,7 @@ if(session.getAttribute("cart") == null){
 												<strong>${prod.getPrice()}<span class="text-muted"></span></strong>
 											</h6>
 										</div>
-										<form method="POST" action="CartController">
+										<form method="POST" action="cart.do">
 											<input type="hidden" name="productId"
 												value="${prod.getProduct_id()}" />
 											<div class="col-xs-4">
@@ -115,7 +115,7 @@ if(session.getAttribute("cart") == null){
 											</button>
 										</form>
 										<div class="col-xs-2">
-											<form method="POST" action="CartController">
+											<form method="POST" action="cart.do">
 												<input type="hidden" name="productId"
 													value="${prod.getProduct_id()}" />
 												<button type="submit" class="btn btn-link btn-xs"
@@ -139,8 +139,10 @@ if(session.getAttribute("cart") == null){
 									</h4>
 								</div>
 								<div class="col-xs-3">
-									<form method="POST" action="CheckoutController">
-										<input type="hidden" name="orderTotal" value="${total}" />
+									<form method="POST" action="checkout.do">
+										<%-- <input type="hidden" name="orderTotal" value="${total}" />
+										 --%>
+										<input type="hidden" name="action" value="checkout" />
 										<button type="submit" class="btn btn-success btn-block">
 											Checkout</button>
 									</form>

@@ -3,6 +3,7 @@ package com.ecommerce.controller;
 import com.ecommerce.service.*;
 
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,15 +22,10 @@ public class LogoutController extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 
-		PrintWriter out = response.getWriter();
-
-		request.getRequestDispatcher("index.html").include(request, response);
-
 		HttpSession session = request.getSession();
 		session.invalidate();
 
-		out.print("You are successfully logged out!");
-
-		out.close();
+		String message = "You are successfully logged out!";
+		response.sendRedirect("welcome?message=" + URLEncoder.encode(message, "UTF-8"));
 	}
 }

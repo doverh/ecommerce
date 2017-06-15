@@ -8,27 +8,28 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href= "${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
  
 
-<script src="../js/jquery-3.2.1.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
 
 
 <script> 
 jQuery(document).ready(function($){
-  $("#header").load("header.jsp"); 
+  $("#header").load("${pageContext.request.contextPath}/views/header.jsp"); 
   /* $("#footer").load("footer.html"); 
  */});
 jQuery(document).ready(function($){
-	  $("#footer").load("footer.html"); 
+	  $("#footer").load("${pageContext.request.contextPath}/views/footer.jsp"); 
 	 });
 </script>
 </head>
 <body>
+	<center><h3 class="m_10">${param.message}</h3></center>
 	<div id="header"></div>
 	<div class="clear"></div>
 	<div class="index-banner">
@@ -36,8 +37,8 @@ jQuery(document).ready(function($){
 			<div class="wmuSliderWrapper">
 				<article style="position: relative; width: 100%; opacity: 1;">
 					<div class="banner-wrap">
-						<div class="slider-left">
-							<img src="../images/banner1.jpg" alt="" />
+						<div class="slider-leparam.ft">
+							<img src="${pageContext.request.contextPath}/images/banner1.jpg" alt="" />
 						</div>
 						<div class="slider-right">
 							<h1>Classic</h1>
@@ -53,7 +54,7 @@ jQuery(document).ready(function($){
 				<article style="position: absolute; width: 100%; opacity: 0;">
 					<div class="banner-wrap">
 						<div class="slider-left">
-							<img src="../images/banner2.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/banner2.jpg" alt="" />
 						</div>
 						<div class="slider-right">
 							<h1>Classic</h1>
@@ -69,7 +70,7 @@ jQuery(document).ready(function($){
 				<article style="position: absolute; width: 100%; opacity: 0;">
 					<div class="banner-wrap">
 						<div class="slider-left">
-							<img src="../images/banner1.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/banner1.jpg" alt="" />
 						</div>
 						<div class="slider-right">
 							<h1>Classic</h1>
@@ -85,7 +86,7 @@ jQuery(document).ready(function($){
 				<article style="position: absolute; width: 100%; opacity: 0;">
 					<div class="banner-wrap">
 						<div class="slider-left">
-							<img src="../images/banner2.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/banner2.jpg" alt="" />
 						</div>
 						<div class="slider-right">
 							<h1>Classic</h1>
@@ -101,7 +102,7 @@ jQuery(document).ready(function($){
 				<article style="position: absolute; width: 100%; opacity: 0;">
 					<div class="banner-wrap">
 						<div class="slider-left">
-							<img src="../images/banner1.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/banner1.jpg" alt="" />
 						</div>
 						<div class="slider-right">
 							<h1>Classic</h1>
@@ -132,7 +133,7 @@ jQuery(document).ready(function($){
 				<li><a href="#" class="">4</a></li>
 			</ul>
 		</div>
-		<script src="../js/jquery.wmuSlider.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.wmuSlider.js"></script>
 		<script type="text/javascript" src="js/modernizr.custom.min.js"></script>
 		<script>
        						 $('.example1').wmuSlider();         
@@ -149,7 +150,7 @@ jQuery(document).ready(function($){
 								<option value="">Popularity</option>
 								<option value="">Price : High to Low</option>
 								<option value="">Price : Low to High</option>
-							</select> <a href=""><img src="../images/arrow2.gif" alt=""
+							</select> <a href=""><img src="${pageContext.request.contextPath}/images/arrow2.gif" alt=""
 								class="v-middle"></a>
 						</div>
 					</div>
@@ -212,7 +213,7 @@ jQuery(document).ready(function($){
 									</span>
 									<ul class="list2">
 
-										<form method="POST" action="CartController">
+										<form method="POST" action="cart.do">
 											<input type="hidden" name="product_id"
 												value="${products.getProduct_id()}" /> <input type="hidden"
 												name="product_code" value="${products.getCode()}" /> <input
@@ -220,9 +221,8 @@ jQuery(document).ready(function($){
 												value="${products.getPrice()}" /> <input type="hidden"
 												name="product_quantity" value="1" /> <input type="hidden"
 												name="product_name" value="${products.getProduct_name()}" />
-
-											<button type="submit" class="btn btn-danger" name="action"
-												value="add">BUY</button>
+											<input type="hidden" name="action" value="add" />
+											<button type="submit" class="btn btn-danger">BUY</button>
 										</form>
 									</ul>
 								</div>

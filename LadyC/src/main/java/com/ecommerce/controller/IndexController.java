@@ -28,7 +28,7 @@ public class IndexController extends HttpServlet {
 			System.out.println("Index list"+productList.toString());
 			if (!productList.isEmpty()) {
 				request.setAttribute("products", productList);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/index.jsp").forward(request, response);
 			} else {
 				String message = "No products found!";
 				response.sendRedirect("index.jsp?message=" + URLEncoder.encode(message, "UTF-8"));

@@ -5,36 +5,27 @@
 <html>
 <head>
 <title>Lady C</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href= "${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+ 
 
-<link href="../css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
-</head>
-
-<script src="../js/jquery-3.2.1.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
 
 
-<script>
-	jQuery(document).ready(function($) {
-		$("#header").load("header.jsṕ");
-		/* $("#footer").load("footer.html"); 
-		 */});
-	jQuery(document).ready(function($) {
-		$("#footer").load("footer.html");
-	});
+<script> 
+jQuery(document).ready(function($){
+  $("#header").load("${pageContext.request.contextPath}/views/header.jsp"); 
+  /* $("#footer").load("footer.html"); 
+ */});
+jQuery(document).ready(function($){
+	  $("#footer").load("${pageContext.request.contextPath}/views/footer.jsp"); 
+	 });
 </script>
 </head>
 <body>
@@ -66,7 +57,7 @@
 									</h5>
 								</div>
 								<div class="col-xs-6">
-									<form action="index">
+									<form action="*.do">
 										<button type="SUBMIT" class="btn btn-primary btn-sm btn-block">
 											<span class="glyphicon glyphicon-share-alt"></span> Continue
 											shopping
@@ -77,9 +68,9 @@
 						</div>
 					</div>
 					<div class="panel-body">
-					<form method="POST" action="OrderController">	
-						<input type="hidden" name="user_id" value="${user_id}" />
-						<input type="hidden" name="order_total" value="${cart.getOrderTotal()}" />
+					<form method="POST" action="order.do">	
+						<input type="hidden" name="userId" value="${user_id}" />
+						<input type="hidden" name="orderTotal" value="${cart.getOrderTotal()}" />
 						<% String listProducts = request.getParameter("products"); 
 						request.setAttribute("productList",listProducts);%>
 						<c:forEach items="${products}" var="products">
@@ -140,6 +131,7 @@
 								<div class="col-xs-3">
 									<button type="submit" class="btn btn-danger">PAY NOW</button>
 								</div>
+								<input type="hidden" name="action" value="order" />
 								</form>
 							</div>
 						</div>

@@ -34,14 +34,12 @@ public class Cart {
 		}
 	}
 
-	public void updateCartProduct(int ProductIndex, String strQuantity) {
+	public void updateCartProduct(int ProductIndex, int iQuantity) {
 		double dblTotalCost = 0.0;
 		double dblUnitCost = 0.0;
-		int iQuantity = 0;
-	    Product cartProduct = null;
+		Product cartProduct = null;
 		try {
 			
-			iQuantity = Integer.parseInt(strQuantity);
 			if (iQuantity > 0) {
 				cartProduct = (Product) allCartProducts.get(ProductIndex);
 				dblUnitCost = cartProduct.getPrice();
@@ -70,8 +68,8 @@ public class Cart {
 			if (iQuantity > 0) {
 				dblTotalCost = dblUnitCost * iQuantity;
 				Product.setProduct_id(Integer.parseInt(id));
-				//Product.setProduct_name(name);
-				//Product.setCode(code);
+				Product.setProduct_name(name);
+				Product.setCode(code);
 				Product.setPrice(dblUnitCost);
 				Product.setQuantity(iQuantity);
 				Product.setTotalCost(dblTotalCost);

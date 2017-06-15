@@ -3,7 +3,6 @@ package com.ecommerce.dto;
 public class Product {
 	private int product_id;
 	private String code;
-
 	private String product_name;
 	private String description;
 	private int category_id;

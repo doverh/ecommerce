@@ -28,11 +28,11 @@ public class OrderController extends HttpServlet {
 
 	OrderService os = new OrderService();
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response, String userId, String orderTotal)
 			throws ServletException, java.io.IOException {
 
-		int user_id = Integer.parseInt(request.getParameter("user_id"));
-		double total = Double.parseDouble(request.getParameter("order_total"));
+		int user_id = Integer.parseInt(userId);
+		double total = Double.parseDouble(orderTotal);
 		//@SuppressWarnings("unchecked")
 		HttpSession session = request.getSession();
 		Object objCart = session.getAttribute("cart");

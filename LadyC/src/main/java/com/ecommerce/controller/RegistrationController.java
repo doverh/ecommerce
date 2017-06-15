@@ -28,14 +28,13 @@ public class RegistrationController extends HttpServlet {
 			user.setEmail(request.getParameter("email"));
 			user.setAddress(request.getParameter("address"));
 			user.setCity(request.getParameter("city"));
-			;
 			user.setState(request.getParameter("state"));
 			user.setPhone(request.getParameter("phone"));
 
 			UserDao dao = new UserDaoImpl();
 			dao.register(user);
 
-			response.sendRedirect("welcome.jsp"); // Send user to login page
+			response.sendRedirect("login.jsp"); // Send user to login page
 		}
 
 		catch (IOException e) {

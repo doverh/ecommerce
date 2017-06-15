@@ -9,7 +9,8 @@
 <body>
 	<script type="text/javascript">
 		function sendLogout() {
-			document.forms["checkoutForm"].submit();
+			document.forms["logoutForm"].submit();
+
 		}
 		function sendMyAccount() {
 			document.forms["myAccountForm"].submit();
@@ -19,7 +20,8 @@
 		<div class="wrap">
 
 			<div class="logo">
-				<a href="<c:url value="/views/index"/>"><img src="../images/logo.png" alt="" /></a>
+				<a href="<c:url value="/welcome"/>"><img
+					src="${pageContext.request.contextPath}/images/logo.png" alt="" /></a>
 			</div>
 
 			<script type="text/javascript">
@@ -75,9 +77,10 @@
 													});
 								});
 			</script>
-			<link href="../css/megamenu.css" rel="stylesheet" type="text/css"
-				media="all" />
-			<script type="text/javascript" src="../js/megamenu.js"></script>
+			<link href="${pageContext.request.contextPath}/css/megamenu.css"
+				rel="stylesheet" type="text/css" media="all" />
+			<script type="text/javascript"
+				src="${pageContext.request.contextPath}/js/megamenu.js"></script>
 			<script>
 				$(document).ready(function() {
 					$(".megamenu").megamenu();
@@ -85,8 +88,10 @@
 			</script>
 			<!-- end menu -->
 			<!-- top scrolling -->
-			<script type="text/javascript" src="../js/move-top.js"></script>
-			<script type="text/javascript" src="../js/easing.js"></script>
+			<script type="text/javascript"
+				src="${pageContext.request.contextPath}/js/move-top.js"></script>
+			<script type="text/javascript"
+				src="${pageContext.request.contextPath}/js/easing.js"></script>
 			<script type="text/javascript">
 				jQuery(document).ready(function($) {
 					$(".scroll").click(function(event) {
@@ -103,37 +108,32 @@
 
 			<div class="cssmenu">
 				<ul>
-					<li class="active"><a href="register.jsp">Sign up</a></li>
-					<li><form id="myAccountForm" method="POST"
-							action="MyAccountController">
-							<a href="javascript:sendMyAccount()">My Account</a>
+					<li class="active"><a href="${pageContext.request.contextPath}/views/register.jsp">Sign up</a></li>
+					<li><form id="myAccountForm" method="POST" action="account.do">
+							<input type="hidden" name="action" value="account" /> <a
+								href="javascript:sendMyAccount()">My Account</a>
 						</form></li>
 					<li><a href="shop.html"></a></li>
-					<li><a href="login.jsp">Login</a></li>
-					<li><form id="checkoutForm" method="POST"
-							action="LogoutController">
-							<a href="javascript:sendLogout()">Logout</a>
+					<li><a
+						href="${pageContext.request.contextPath}/views/login.jsp">Login</a></li>
+					<li><form id="logoutForm" method="POST" action="logout.do">
+							<input type="hidden" name="action" value="logout" /> <a
+								href="javascript:sendLogout()">Logout</a>
 						</form></li>
-					<li><form method="POST" action="CartController">
-							<button type="submit">
+					<li><form method="POST" action="cart.do">
+					<input type="hidden" name="action" value="cart" />
+						<button type="submit">
+								
 								<span class="glyphicon glyphicon-shopping-cart">CART</span>
 							</button>
 						</form></li>
 				</ul>
 			</div>
-			<!-- <ul class="icon2 sub-icon2 profile_img">
-			<li><a class="active-icon c2" href="#"> </a>
-				<ul class="sub-icon2 list">
-					<li><h3>Products</h3><a href=""></a></li>
-					<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
-				</ul>
-			</li>
-		</ul> -->
 			<div class="clear"></div>
 			<div class="clear"></div>
-			<form class="search-wrapper cf" action="ProductController"
-				method="POST">
+			<form class="search-wrapper cf" action="search.do" method="POST">
 				<input type="text" placeholder="Search here..." name="search">
+				<input type="hidden" name="action" value="search" />
 				<button type="submit">Search</button>
 			</form>
 		</div>
@@ -163,7 +163,8 @@
 							<div class="col1"></div>
 							<div class="col1"></div>
 							<div class="col1"></div>
-							<img src="../images/nav_img.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/nav_img.jpg"
+								alt="" />
 						</div>
 					</div></li>
 				<li class="active grid"><a class="color4" href="#">Boots</a>
@@ -179,7 +180,9 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<img src="../images/nav_img1.jpg" alt="" />
+									<img
+										src="${pageContext.request.contextPath}/images/nav_img1.jpg"
+										alt="" />
 								</div>
 							</div>
 						</div>
@@ -208,7 +211,8 @@
 							<div class="col1"></div>
 							<div class="col1"></div>
 							<div class="col1"></div>
-							<img src="../images/nav_img2.jpg" alt="" />
+							<img src="${pageContext.request.contextPath}/images/nav_img2.jpg"
+								alt="" />
 						</div>
 					</div>
 				<li><a class="color5" href="#">Oxfords</a>
@@ -222,7 +226,9 @@
 
 									</ul>
 								</div>
-								<img src="../images/nav_img3.jpg" alt="" />
+								<img
+									src="${pageContext.request.contextPath}/images/nav_img3.jpg"
+									alt="" />
 							</div>
 						</div>
 					</div></li>

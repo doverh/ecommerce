@@ -33,7 +33,7 @@ public class ProductController extends HttpServlet {
 			// System.out.println(productList.toString());
 			if (!productList.isEmpty()) {
 				request.setAttribute("products", productList);
-				request.getRequestDispatcher("search.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/search.jsp").forward(request, response);
 			} else {
 				String message = "No products found!";
 				response.sendRedirect("search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));

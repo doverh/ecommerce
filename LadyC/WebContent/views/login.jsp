@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
 				<div class="login-title">
 					<h4 class="title">Registered Customers</h4>
 					<div class="comments-area">
-						<form action="LoginController" method="POST">
+						<form action="login.do" method="POST">
 							<p>
 								<label>Username</label> <span>*</span> <input type="text"
 									name="username" value="">
@@ -58,7 +58,8 @@ jQuery(document).ready(function($){
 								<label><a href="#">Forget Your Password ? </a></label>
 							</p>
 							<p>
-								<input type="submit" value="Login">
+							  <input type="hidden" name="action" value="login"/>
+   								<input type="submit" value="Login">
 							</p>
 						</form>
 					</div>
