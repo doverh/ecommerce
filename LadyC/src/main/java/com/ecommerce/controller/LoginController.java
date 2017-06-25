@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 //This class takes input from Login.jsp page and authenticate user in the system
-
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = 2562294252731783855L;
@@ -32,7 +31,6 @@ public class LoginController extends HttpServlet {
 			int userId = userObject.getId();
 			HttpSession session = request.getSession();
 			Object logged = session.getAttribute("login");
-			
 			Cart cart = null;
 			Object objCart = session.getAttribute("cart");
 			if (objCart != null) {

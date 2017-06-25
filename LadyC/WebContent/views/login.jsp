@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 <body>
 	<div id="header"></div>
 
-
+	<center><h3 class="m_10">${param.message}</h3></center>
 	<div class="login">
 		<div class="wrap">
 			<div class="col_1_of_login span_1_of_login">

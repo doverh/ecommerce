@@ -22,24 +22,16 @@ import com.ecommerce.exception.ApplicationException;
 import com.ecommerce.service.ProductService;
 
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class redirect to the controllers
  */
 @WebServlet("*.do")
 public class ActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public ActionServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

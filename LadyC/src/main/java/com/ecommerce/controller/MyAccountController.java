@@ -46,10 +46,10 @@ public class MyAccountController extends HttpServlet {
 			
 			if (!orderList.isEmpty()) {
 				request.setAttribute("orders", orderList);
-				request.getRequestDispatcher("myaccount.jsp").forward(request, response);
+				request.getRequestDispatcher("views/myaccount.jsp").forward(request, response);
 			} else {
 				String message = "You haven't place an order yet!";
-				response.sendRedirect("myaccount.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+				response.sendRedirect("views/myaccount.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 			}
 			
 		//If user not logged in send for login page	
@@ -57,7 +57,7 @@ public class MyAccountController extends HttpServlet {
 
 			String message = "You should login first!";
 
-			response.sendRedirect("login.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+			response.sendRedirect("views/login.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 
 		}
 	}

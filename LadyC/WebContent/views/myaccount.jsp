@@ -8,41 +8,24 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href= "${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+ 
+
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
 
 
-<!-- end menu -->
-<!-- top scrolling -->
-<script type="text/javascript" src="../js/move-top.js"></script>
-<script type="text/javascript" src="../js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event) {
-			event.preventDefault();
-			$('html,body').animate({
-				scrollTop : $(this.hash).offset().top
-			}, 1200);
-		});
-	});
-</script>
-
-<script src="../js/jquery-3.2.1.js"></script>
-
-
-<script>
-	jQuery(document).ready(function($) {
-		$("#header").load("header.jsp");
-		/* $("#footer").load("footer.html"); 
-		 */});
-	jQuery(document).ready(function($) {
-		$("#footer").load("footer.html");
-	});
+<script> 
+jQuery(document).ready(function($){
+  $("#header").load("${pageContext.request.contextPath}/views/header.jsp"); 
+  /* $("#footer").load("footer.html"); 
+ */});
+jQuery(document).ready(function($){
+	  $("#footer").load("${pageContext.request.contextPath}/views/footer.jsp"); 
+	 });
 </script>
 </head>
 <body>
@@ -68,7 +51,7 @@ if(session.getAttribute("cart") == null){
 										</h5>
 									</div>
 									<div class="col-xs-6">
-										<form action="index">
+										<form action="*.do">
 											<button type="SUBMIT"
 												class="btn btn-primary btn-sm btn-block">
 												<span class="glyphicon glyphicon-share-alt"></span> Continue
@@ -95,9 +78,6 @@ if(session.getAttribute("cart") == null){
 												<small><c:out value="${ord[0]}" /></small>
 											</h4></td>
 										<td><h4>
-												<small></small>
-											</h4></td>
-										<td><h4>
 												<small><c:out value="${ord[1]}" /></small>
 											</h4></td>
 										<td><h4>
@@ -109,6 +89,10 @@ if(session.getAttribute("cart") == null){
 										<td><h4>
 												<small><c:out value="${ord[4]}" /></small>
 											</h4></td>
+										<td><h4>
+												<small><c:out value="${ord[5]}" /></small>
+											</h4></td>
+											
 
 									</tr>
 								</c:forEach>

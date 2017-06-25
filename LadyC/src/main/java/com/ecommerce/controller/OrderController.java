@@ -55,7 +55,9 @@ public class OrderController extends HttpServlet {
 			Order order = new Order();
 			order.setAmount(total);
 			order.setUser_id(user_id);
-			order.setOrder_date(LocalDateTime.now().toString());
+			String date = LocalDateTime.now().toString();
+			//get just the date portion of the date time string
+			order.setOrder_date(date.substring(0, 10));
 			OrderDao Odao = new OrderDaoImpl();
 			Order newOrder = Odao.registerOrder(order);
 			

@@ -41,9 +41,9 @@ public class CheckoutController extends HttpServlet {
 		if (objCart != null & logged != null) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cartSh.getOrderTotal());
-			request.getRequestDispatcher("payment.jsp").forward(request, response);
+			request.getRequestDispatcher("views/payment.jsp").forward(request, response);
 				}else{
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("views/login.jsp");
 		}
 	}
 }

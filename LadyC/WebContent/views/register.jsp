@@ -5,7 +5,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
@@ -15,26 +16,91 @@
 <script src="../js/jquery-3.2.1.js"></script>
 
 
-<script> 
-jQuery(document).ready(function($){
-  $("#header").load("header.jsp"); 
-  /* $("#footer").load("footer.html"); 
- */});
-jQuery(document).ready(function($){
-	  $("#footer").load("footer.html"); 
-	 });
+<script>
+	jQuery(document).ready(function($) {
+		$("#header").load("header.jsp");
+		/* $("#footer").load("footer.html"); 
+		 */});
+	jQuery(document).ready(function($) {
+		$("#footer").load("footer.html");
+	});
 
-$(document).ready(function(){
-  $('#id_password_field').val('password');        
-   $('#id_password_field').click(function(){
-       if($(this).val()=='password'){$(this).val('')}
-   });
-   $('#id_password_field').focus(function(){
-       if($(this).val()=='password'){$(this).val('')}
-   });
-});
+	$(document).ready(function() {
+		$('#id_password_field').val('password');
+		$('#id_password_field').click(function() {
+			if ($(this).val() == 'password') {
+				$(this).val('')
+			}
+		});
+		$('#id_password_field').focus(function() {
+			if ($(this).val() == 'password') {
+				$(this).val('')
+			}
+		});
+	});
+
+	function checkRegistration() {
+		var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/;
+		//var uname = document.getElementById('uname'); 
+		var fname = document.getElementById('firstname'), 
+		lname = document.getElementById('lastname'), 
+		femail = document.getElementById('email'),
+		fpassword = document.getElementById('pwd'), 
+		faddress = document.getElementById('address'), 
+		fcity = document.getElementById('city'),
+		fphone = document.getElementById('phone');
+		
+
+		 if (uname.value == "Username") {
+			document.form.uname.focus();
+			alert("Enter the Username!")
+			return false
+		} 
+		if (fname.value == "First Name") {
+			document.form.fisrtname.focus();
+			alert("Enter the first name")
+			return false
+		}
+		if (lname.value == "Last Name") {
+			document.form.lastName.focus();
+			Alert("Enter the last name!");
+			return false;
+		}
+
+		if (femail.value == "E-mail") {
+			document.form.email.focus();
+			alert("Enter the e-mail");
+			return false;
+		} else if (!emailRegex.test(femail)) {
+			document.form.email.focus();
+			alert("Enter a valid e-mail");
+			return false;
+		}
+
+		if (fpassword.value == "Password") {
+			document.form.pwd.focus();
+			alert("Enter the password");
+
+			return false;
+		}
+
+		if (faddress.value == "Address") {
+			document.form.address.focus();
+			alert("Enter the address");
+			return false;
+		}
+		if (fcity.value == "City") {
+			document.form.city.focus();
+			alert("Enter the city");
+			return false;
+		}
+		if (fphone.value == "Phone Number") {
+			document.form.phone.focus();
+			alert("Enter the phone number");
+			return false;
+		}
+	}
 </script>
-
 </head>
 <body>
 	<div id="header"></div>
@@ -42,30 +108,30 @@ $(document).ready(function(){
 	<div class="register_account">
 		<div class="wrap">
 			<h4 class="title">Create an Account</h4>
-			<form method="post" action="register.do">
+			<form name="form" method="post" action="register.do">
 				<div class="col_1_of_2 span_1_of_2">
 					<div>
-						<input type="text" name="username" value="Username" 
+						<input type="text" name="username" id="uname" value="Username"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Username';}">
 					</div>
 					<div>
-						<input type="password" name="pwd" value="Password" placeholder="Password"
-							onfocus="this.value = '';"
+						<input type="password" name="pwd" id="pwd" value="Password"
+							placeholder="Password" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'password';}">
 					</div>
 					<div>
-						<input type="text" name="firstname" value="First Name"
+						<input type="text" name="firstname" id="firstname" value="First Name"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'First Name';}">
 					</div>
 					<div>
-						<input type="text" name="lastname" value="Last Name"
+						<input type="text" name="lastname" id="lastname" value="Last Name"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Last Name';}">
 					</div>
 					<div>
-						<input type="text" name="email" value="E-mail"
+						<input type="text" name="email" id="email" value="E-mail"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'E-Mail';}">
 					</div>
@@ -73,12 +139,12 @@ $(document).ready(function(){
 				</div>
 				<div class="col_1_of_2 span_1_of_2">
 					<div>
-						<input type="text" name="address" value="Address"
+						<input type="text" name="address" id="address" value="Address"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Address';}">
 					</div>
 					<div>
-						<input type="text" name="city" value="City"
+						<input type="text" name="city" id="city" value="City"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'City';}">
 					</div>
@@ -140,14 +206,15 @@ $(document).ready(function(){
 						</select>
 					</div>
 					<div>
-						<input type="text" name="phone" value="Phone Number"
+						<input type="text" name="phone" id="phone" value="Phone Number"
 							onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Phone';}">
 					</div>
 
 				</div>
 				<input type="hidden" name="action" value="register" />
-				<button class="grey">Submit</button>
+				<button class="grey" type="submit"
+					onclick="return checkRegistration()">Submit</button>
 				<p class="terms">
 					By clicking 'Create Account' you agree to the <a href="#">Terms
 						&amp; Conditions</a>.

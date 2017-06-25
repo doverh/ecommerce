@@ -79,7 +79,7 @@ jQuery(document).ready(function($){
 										<p class="m_2">${products.getCode()}</p>
 										<div class="grid_img">
 											<div class="css3">
-												<img src="../${products.getImage()}" />
+												<img src="${pageContext.request.contextPath}/${products.getImage()}" />
 											</div>
 											<!-- 
 											<div class="mask1">

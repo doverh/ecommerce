@@ -42,7 +42,7 @@ public class CartController extends HttpServlet {
 			if (!carts.isEmpty()) {
 				request.setAttribute("products", carts);
 				request.setAttribute("total", cart.getOrderTotal());
-				request.getRequestDispatcher("views/geshoppingcart.jsp").forward(request, response);
+				request.getRequestDispatcher("views/shoppingcart.jsp").forward(request, response);
 			} else {
 				String message = "Shopping cart is empty!";
 				response.sendRedirect("views/search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
@@ -74,10 +74,10 @@ public class CartController extends HttpServlet {
 		if (!carts.isEmpty()) {
 			request.setAttribute("products", carts);
 			request.setAttribute("total", cart.getOrderTotal());
-			request.getRequestDispatcher("/views/shoppingcart.jsp").forward(request, response);
+			request.getRequestDispatcher("views/shoppingcart.jsp").forward(request, response);
 		} else {
 			String message = "Shopping cart is empty!";
-			response.sendRedirect("/views/search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+			response.sendRedirect("views/search.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 		}
 	}
 

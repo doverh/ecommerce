@@ -29,7 +29,7 @@ public class MyAccountDaoImpl implements MyAccountDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		// Query using Hibernate Query Language
-		SQLQuery query = session.createSQLQuery("select o.order_number,p.code, p.product_name,  i.quantity, i.price from items i inner join orders o on i.order_number = o.order_number inner join products as p "
+		SQLQuery query = session.createSQLQuery("select o.order_number,o.order_date,p.code, p.product_name,  i.quantity, i.price from items i inner join orders o on i.order_number = o.order_number inner join products as p "
 				+ "on i.product_id = p.product_id where o.user_id =?");
 		/*query.addEntity(Item.class);
 		query.addEntity(Order.class);
