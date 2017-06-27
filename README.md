@@ -1,4 +1,4 @@
-# Project Title
+# Lady C Ecommerce in Java
 
 This project, a Virtual Store in Java, is an idivindual effort as part of the final project for the bootcamp of the Full-Stack Java course  http://www.mindteckacademy.com/javajee.html. 
 
